@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên Mục Tiêu:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/etTenSH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ví dụ: Uống 2L nước"
+            android:inputType="textCapSentences"
+            android:maxLines="1"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mô Tả:"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etMoTa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ví dụ: Giữ cơ thể đủ nước, tập trung làm việc"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lặp Lại Vào Các Ngày:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/llNgayLapLai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT2" android:text="T2" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT3" android:text="T3" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT4" android:text="T4" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT5" android:text="T5" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT6" android:text="T6" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbT7" android:text="T7" android:layout_weight="1"/>
+            <CheckBox style="@style/DayCheckBox" android:id="@+id/cbCN" android:text="CN" android:layout_weight="1"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Khoảng Thời Gian Lặp Lại (Phút):"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etIntervalMinutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ví dụ: 30"
+            android:inputType="number"
+            android:maxLength="3"
+            android:text="30" />
+    </LinearLayout>
+</ScrollView>

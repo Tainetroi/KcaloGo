@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sửa Thông Tin Người Dùng"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/et_edit_tenuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên người dùng"/>
+
+    <EditText
+        android:id="@+id/et_edit_taikhoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tài khoản"/>
+
+    <EditText
+        android:id="@+id/et_edit_matkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/et_edit_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số điện thoại"
+        android:inputType="phone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giới tính"
+        android:layout_marginTop="16dp" />
+
+    <RadioGroup
+        android:id="@+id/rg_edit_gioitinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_edit_nam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nam"/>
+
+        <RadioButton
+            android:id="@+id/rb_edit_nu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Nữ"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chức vụ"
+        android:layout_marginTop="16dp" />
+
+    <RadioGroup
+        android:id="@+id/rg_edit_chucvu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_edit_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Người dùng thường"/>
+
+        <RadioButton
+            android:id="@+id/rb_edit_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Admin"/>
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_update_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Cập Nhật"/>
+
+</LinearLayout>
