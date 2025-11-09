@@ -1,112 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+
     android:background="#e7e5d8"
+
     tools:context=".MainActivity">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:id="@+id/clHeader"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:padding="16dp"
+
         app:layout_constraintTop_toTopOf="parent">
 
+
+
         <ImageView
+
             android:id="@+id/ivMenu"
+
             android:layout_width="match_parent"
+
             android:layout_height="80dp"
+
             android:layout_marginStart="8dp"
+
             android:layout_marginTop="4dp"
+
             android:src="@drawable/logo"
+
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
     <ImageView
+
         android:id="@+id/ivPoster"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:adjustViewBounds="true"
+
         android:layout_marginHorizontal="24dp"
+
         android:src="@drawable/poster_healthy_diet"
+
         app:layout_constraintTop_toBottomOf="@id/clHeader" />
 
-    <LinearLayout
-        android:id="@+id/llSectionDots"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/ivPoster">
-        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_active" />
-        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginStart="4dp" />
-        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginStart="4dp" />
-    </LinearLayout>
+
 
     <LinearLayout
-        android:id="@+id/llBiquyet"
+
+        android:id="@+id/llSectionDots"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
+        android:gravity="center"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintTop_toBottomOf="@id/ivPoster">
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_active" />
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginStart="4dp" />
+
+        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/dot_inactive" android:layout_marginStart="4dp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+
+        android:id="@+id/llBiquyet"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
         android:orientation="vertical"
+
         android:layout_marginTop="24dp"
+
         android:background="#f5f5f5"
+
         android:padding="16dp"
+
         app:layout_constraintTop_toBottomOf="@id/llSectionDots">
 
+
+
         <TextView
+
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+
             android:text="Bí quyết"
+
             android:textSize="18sp"
+
             android:textStyle="bold"
+
             android:textColor="@color/black" />
 
+
+
         <LinearLayout
+
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
+
             android:orientation="horizontal"
+
             android:layout_marginTop="16dp"
+
             android:weightSum="3">
+
+
 
             <include layout="@layout/item_feature_button" android:id="@+id/btn_lich_tap" />
+
             <include layout="@layout/item_feature_button" android:id="@+id/btn_do_an" />
+
             <include layout="@layout/item_feature_button" android:id="@+id/btn_sinh_hoat" />
+
         </LinearLayout>
+
     </LinearLayout>
+
+
 
     <LinearLayout
+
         android:id="@+id/llDichVuKhac"
+
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
+
         android:orientation="vertical"
+
         android:layout_marginTop="16dp"
+
         android:background="#f5f5f5"
+
         android:padding="16dp"
+
         app:layout_constraintTop_toBottomOf="@id/llBiquyet">
 
+
+
         <TextView
+
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+
             android:text="Dịch vụ khác"
+
             android:textSize="18sp"
+
             android:textStyle="bold"
+
             android:textColor="@color/black" />
 
+
+
         <LinearLayout
+
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
+
             android:orientation="horizontal"
+
             android:layout_marginTop="16dp"
+
             android:weightSum="3">
 
+
+
             <include layout="@layout/item_feature_button" android:id="@+id/btn_hang_ngay" />
+
             <include layout="@layout/item_feature_button" android:id="@+id/btn_tinh_kcalo" />
+
             <include layout="@layout/item_feature_button" android:id="@+id/btn_tinh_bmi" />
+
         </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

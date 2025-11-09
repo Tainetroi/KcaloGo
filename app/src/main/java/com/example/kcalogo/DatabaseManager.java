@@ -130,7 +130,6 @@ public class DatabaseManager {
         values.put("iduser", idUser);
 
         try {
-            // Dùng insertOrThrow để ném ra Exception nếu có lỗi (ví dụ: thiếu cột)
             long result = database.insertOrThrow("sinhhoat", null, values);
             Log.d("DB_INSERT_SUCCESS", "Successfully inserted row ID: " + result);
             return result;
@@ -196,6 +195,9 @@ public class DatabaseManager {
         }
         return sinhHoatList;
     }
+
+
+
 
     // Lấy TẤT CẢ Sinh Hoạt (READ - Debug) - Đã có khoangthoigian
     public List<SinhHoat> getAllSinhHoat() {
@@ -275,6 +277,69 @@ public class DatabaseManager {
     }
 
     // ===================================================================
+    //  QUẢN LÝ NHẬT KÝ HÀNG NGÀY (HANGNGAY)
+    // ===================================================================
+
+    /**
+     * Thêm hoặc cập nhật ghi chú Hàng ngày (Sử dụng ngày và ID người dùng làm khóa).
+     * @param noiDung Nội dung ghi chú.
+     * @param ngay Ngày (dạng yyyy-MM-dd).
+     * @param idUser ID người dùng.
+     */
+    public long saveHangngayNote(String noiDung, String ngay, int idUser) {
+        ContentValues values = new ContentValues();
+        values.put("noidung", noiDung);
+        values.put("ngay", ngay);
+        values.put("iduser", idUser);
+
+        // 1. Thử cập nhật trước
+        int rows = database.update(
+                "hangngay",
+                values,
+                "ngay = ? AND iduser = ?",
+                new String[]{ngay, String.valueOf(idUser)}
+        );
+
+        // 2. Nếu không có hàng nào được cập nhật, thì chèn mới
+        if (rows == 0) {
+            try {
+                return database.insertOrThrow("hangngay", null, values);
+            } catch (Exception e) {
+                Log.e("DB_HANGNGAY", "Lỗi khi chèn mới ghi chú: " + e.getMessage());
+                return -1;
+            }
+        }
+        return rows; // Trả về số hàng được cập nhật (1)
+    }
+
+    /**
+     * Lấy nội dung ghi chú Hàng ngày theo ngày.
+     * @param ngay Ngày (dạng yyyy-MM-dd).
+     * @param idUser ID người dùng.
+     * @return Nội dung ghi chú hoặc chuỗi rỗng nếu không tìm thấy.
+     */
+    public String getHangngayNote(String ngay, int idUser) {
+        Cursor cursor = null;
+        String noiDung = "";
+        try {
+            String query = "SELECT noidung FROM hangngay WHERE ngay = ? AND iduser = ?";
+            cursor = database.rawQuery(query, new String[]{ngay, String.valueOf(idUser)});
+
+            if (cursor.moveToFirst()) {
+                noiDung = cursor.getString(cursor.getColumnIndexOrThrow("noidung"));
+            }
+        } catch (Exception e) {
+            Log.e("DB_CALENDAR", "Lỗi khi lấy ghi chú hàng ngày: " + e.getMessage());
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return noiDung;
+    }
+
+
+    // ===================================================================
     //  CÁC PHƯƠNG THỨC INSERT KHÁC
     // ===================================================================
 
@@ -304,7 +369,11 @@ public class DatabaseManager {
         values.put("iduser", idUser);
         database.insert("hangngay", null, values);
     }
-
+    public int deleteHangngayNote(String ngay, int idUser) {
+        String whereClause = "ngay = ? AND iduser = ?";
+        String[] whereArgs = { ngay, String.valueOf(idUser) };
+        return database.delete("hangngay", whereClause, whereArgs);
+    }
     public void insertCuongDo(String tenCd) {
         ContentValues values = new ContentValues();
         values.put("tencd", tenCd);

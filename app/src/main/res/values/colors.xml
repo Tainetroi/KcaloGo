@@ -2,9 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="darker_gray">@android:color/darker_gray</color>
 
-    <color name="gray_uncompleted">#FFCCCCCC</color>
+    <color name="admin_background">#F5F5F5</color>  <color name="card_background">#FFFFFF</color>   <color name="purple_original">#673AB7</color>   <color name="gray_text">#616161</color>        <color name="gray_uncompleted">#FFCCCCCC</color> <color name="green_completed">#FF4CAF50</color>
+    <color name="green_add">#4CAF50</color>
 
-    <color name="green_completed">#FF4CAF50</color>
+    <color name="red_delete">#F44336</color>
 
+    <color name="blue_edit">#2196F3</color>
+    <color name="teal_button">#00BCD4</color>
+
+    <color name="teal_500">#009688</color>
+    <color name="teal_700">#00796B</color>
 </resources>
